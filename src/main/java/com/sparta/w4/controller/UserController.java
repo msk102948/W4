@@ -30,7 +30,6 @@ public class UserController {
     // 회원 로그인 페이지
     @GetMapping("/user/loginView")
     public String login() {
-        System.out.println(123);
         return "login";
     }
 
@@ -43,6 +42,7 @@ public class UserController {
     // 회원 가입 요청 처리
     @PostMapping("/user/signup")
     public String registerUser(SignupRequestDto requestDto) {
+        System.out.println("회원가입 내용 들어오나요?");
         userService.registerUser(requestDto);
         return "redirect:/user/loginView";
     }
