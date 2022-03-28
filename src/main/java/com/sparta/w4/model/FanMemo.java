@@ -1,5 +1,6 @@
 package com.sparta.w4.model;
 
+import com.sparta.w4.dto.FanMemoRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

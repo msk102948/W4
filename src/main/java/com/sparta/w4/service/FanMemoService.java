@@ -1,14 +1,13 @@
 package com.sparta.w4.service;
 
 import com.sparta.w4.model.FanMemo;
-import com.sparta.w4.model.FanMemoRepository;
-import com.sparta.w4.model.FanMemoRequestDto;
+import com.sparta.w4.repository.FanMemoRepository;
+import com.sparta.w4.dto.FanMemoRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service

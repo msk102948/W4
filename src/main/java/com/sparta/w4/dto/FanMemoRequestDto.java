@@ -1,4 +1,4 @@
-package com.sparta.w4.model;
+package com.sparta.w4.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

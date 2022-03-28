@@ -11,7 +11,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/fanmemostyle.css">
     <script src="title.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200&display=swap" rel="stylesheet">
 
@@ -21,7 +21,7 @@
 
 <body>
 <div th:insert="title.html :: title"></div>
-<form method="post" action="/fanmemo">
+<form method="post" action="/api/fanmemo">
 <div class="myPost">
     <div class="form-floating mb-3">
         <input type="text" class="form-control" id="title" name="title">

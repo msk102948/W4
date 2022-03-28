@@ -17,16 +17,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="/css/fanmemostyle.css">
     <script src="title.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200&display=swap" rel="stylesheet">
 
     <title>팬명록</title>
+    <script src="index.js"></script>
 </head>
 
 <body>
 <div th:insert="title.html :: title"></div>
+<div id="header-title-login-user">
+    <span id="username"></span> 님의
+</div>
 <div class="card">
     <div class="card-body" th:each="memo:${memos}">
         <a th:href="@{view/(id=${memo.id})}">
