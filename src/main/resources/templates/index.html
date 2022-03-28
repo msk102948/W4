@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--    og tag-->
+    <meta property="og:title" content="팬명록">
+    <meta property="og:description" content="응원 댓글 남기기!">
+    <meta property="og:image" content="images/fanmemo_og_image.jpg">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="title.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200&display=swap" rel="stylesheet">
+
+    <title>팬명록</title>
+    <script src="index.js"></script>
+</head>
+
+<body>
+<div th:insert="title.html :: title"></div>
+<div class="card">
+    <div class="card-body" th:each="memo:${memos}">
+        <a th:href="@{view/(id=${memo.id})}">
+        <blockquote class="blockquote mb-0">
+            <p th:text="${memo.title}">제목</p>
+            <p th:text="${memo.username}">작성자</p>
+            <footer class="blockquote-footer"><cite title="Source Title" th:text="${memo.modifiedAt}">작성날짜</cite>
+            </footer>
+        </blockquote>
+        </a>
+    </div>
+</div>
+</body>
+
+</html>
