@@ -25,10 +25,16 @@ public class FanMemo extends Timestamped {
     @Column(nullable = false)
     private String content;
 
-    public FanMemo(FanMemoRequestDto requestDto){
-        this.title = requestDto.getTitle();
-        this.username = requestDto.getUsername();
-        this.content = requestDto.getContent();
+//    public FanMemo(FanMemoRequestDto requestDto){
+//        this.title = requestDto.getTitle();
+//        this.username = requestDto.getUsername();
+//        this.content = requestDto.getContent();
+//    }
+
+    public FanMemo(String username, String title, String content) {
+        this.username = username;
+        this.title = title;
+        this.content = content;
     }
 
     public void update(FanMemoRequestDto requestDto) {

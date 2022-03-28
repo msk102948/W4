@@ -21,6 +21,7 @@
 
 <body>
 <div th:insert="title.html :: title"></div>
+<form method="post" action="/fanmemo">
 <div class="myPost">
     <div class="form-floating mb-3">
         <input type="text" class="form-control" id="title" name="title">
@@ -36,9 +37,10 @@
         <label for="content">응원댓글</label>
     </div>
     <div class="mybtns">
-        <button type="button" class="btn btn-dark" onclick="postMemo()">응원남기기</button>
+        <button type="submit" class="btn btn-dark">응원남기기</button>
     </div>
 </div>
+</form>
 </body>
 
 </html>

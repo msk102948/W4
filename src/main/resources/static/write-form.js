@@ -1,6 +1,5 @@
 function postMemo() {
     let username = $('#username').val();
-    console.log(username)
     let title = $('#title').val();
     let content = $('#content').val();
     let data = {'username': username , 'title': title, 'content': content};

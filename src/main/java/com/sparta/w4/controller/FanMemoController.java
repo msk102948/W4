@@ -29,9 +29,8 @@ public class FanMemoController {
     }
 
     @PostMapping("/fanmemo")
-    public String postMemo(@RequestBody FanMemoRequestDto requestDto){
-        FanMemo fanMemo = new FanMemo(requestDto);
-        fanMemoRepository.save(fanMemo);
+    public String postMemo(FanMemoRequestDto requestDto){
+        fanMemoService.save(requestDto);
         return "redirect:/";
     }
 

@@ -3,21 +3,15 @@ package com.sparta.w4.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@NoArgsConstructor
-//@AllArgsConstructor
 @Getter
+@Setter
 public class FanMemoRequestDto {
 
     private String title;
     private String username;
     private String content;
-
-    public FanMemoRequestDto(String title, String username, String content) {
-        this.title = title;
-        this.username = username;
-        this.content = content;
-    }
 
     @Override
     public String toString() {
