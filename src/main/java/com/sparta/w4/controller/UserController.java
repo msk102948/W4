@@ -3,8 +3,6 @@ package com.sparta.w4.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sparta.w4.dto.SignupRequestDto;
 import com.sparta.w4.dto.UserInfoDto;
-import com.sparta.w4.model.UserRoleEnum;
-import com.sparta.w4.security.UserDetailsImpl;
 import com.sparta.w4.service.KakaoUserService;
 import com.sparta.w4.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,21 +40,18 @@ public class UserController {
     // 회원 가입 요청 처리
     @PostMapping("/user/signup")
     public String registerUser(SignupRequestDto requestDto) {
-        System.out.println("회원가입 내용 들어오나요?");
         userService.registerUser(requestDto);
         return "redirect:/user/loginView";
     }
 
     // 회원 관련 정보 받기
-    @PostMapping("/user/userinfo")
-    @ResponseBody
-    public UserInfoDto getUserInfo(@AuthenticationPrincipal UserDetailsImpl userDetails) {
-        String username = userDetails.getUser().getUsername();
-        UserRoleEnum role = userDetails.getUser().getRole();
-        boolean isAdmin = (role == UserRoleEnum.ADMIN);
-
-        return new UserInfoDto(username, isAdmin);
-    }
+//    @PostMapping("/user/userinfo")
+//    @ResponseBody
+//    public UserInfoDto getUserInfo(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+//        String username = userDetails.getUser().getUsername();
+//
+//        return new UserInfoDto(username);
+//    }
 
     @GetMapping("/user/kakao/callback")
     public String kakaoLogin(@RequestParam String code) throws JsonProcessingException {

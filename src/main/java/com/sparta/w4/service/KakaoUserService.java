@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sparta.w4.dto.KakaoUserInfoDto;
 import com.sparta.w4.model.User;
-import com.sparta.w4.model.UserRoleEnum;
 import com.sparta.w4.repository.UserRepository;
 import com.sparta.w4.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,10 +124,8 @@ public class KakaoUserService {
 
             // email: kakao email
             String email = kakaoUserInfo.getEmail();
-            // role: 일반 사용자
-            UserRoleEnum role = UserRoleEnum.USER;
 
-            kakaoUser = new User(nickname, encodedPassword, email, role, kakaoId);
+            kakaoUser = new User(nickname, encodedPassword, email, kakaoId);
             userRepository.save(kakaoUser);
         }
         return kakaoUser;
@@ -136,7 +133,7 @@ public class KakaoUserService {
 
     private void forceLogin(User kakaoUser) {
         UserDetails userDetails = new UserDetailsImpl(kakaoUser);
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null);
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 }

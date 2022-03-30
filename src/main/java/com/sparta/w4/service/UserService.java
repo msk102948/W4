@@ -2,7 +2,6 @@ package com.sparta.w4.service;
 
 import com.sparta.w4.dto.SignupRequestDto;
 import com.sparta.w4.model.User;
-import com.sparta.w4.model.UserRoleEnum;
 import com.sparta.w4.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,16 +33,8 @@ public class UserService {
         String password = passwordEncoder.encode(requestDto.getPassword());
         String email = requestDto.getEmail();
 
-        // 사용자 ROLE 확인
-        UserRoleEnum role = UserRoleEnum.USER;
-        if (requestDto.isAdmin()) {
-            if (!requestDto.getAdminToken().equals(ADMIN_TOKEN)) {
-                throw new IllegalArgumentException("관리자 암호가 틀려 등록이 불가능합니다.");
-            }
-            role = UserRoleEnum.ADMIN;
-        }
 
-        User user = new User(username, password, email, role);
+        User user = new User(username, password, email);
         userRepository.save(user);
     }
 }
