@@ -53,7 +53,10 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String authority = "ROLE_USER";
+<<<<<<< HEAD
 
+=======
+>>>>>>> a4e44f3 (jwt파일 화인코드(print문들 추가))
         SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(authority);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(simpleGrantedAuthority);
