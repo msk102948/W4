@@ -30,12 +30,9 @@
 
 <body>
 <div th:insert="title.html :: title"></div>
-<div id="header-title-login-user">
-    <span id="username"></span> 님의
-</div>
 <div class="card">
     <div class="card-body" th:each="memo:${memos}">
-        <a th:href="@{view/(id=${memo.id})}">
+        <a th:href="@{api/view/(id=${memo.id})}">
         <blockquote class="blockquote mb-0">
             <p th:text="${memo.title}">제목</p>
             <p th:text="${memo.username}">작성자</p>

@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sparta.w4.dto.KakaoUserInfoDto;
 import com.sparta.w4.model.User;
 import com.sparta.w4.repository.UserRepository;
-import com.sparta.w4.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -46,7 +45,7 @@ public class KakaoUserService {
         User kakaoUser = registerKakaoUserIfNeeded(kakaoUserInfo);
 
         // 4. 강제 로그인 처리
-        forceLogin(kakaoUser);
+//        forceLogin(kakaoUser);
     }
 
     private String getAccessToken(String code) throws JsonProcessingException {
@@ -131,9 +130,9 @@ public class KakaoUserService {
         return kakaoUser;
     }
 
-    private void forceLogin(User kakaoUser) {
-        UserDetails userDetails = new UserDetailsImpl(kakaoUser);
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-    }
+//    private void forceLogin(User kakaoUser) {
+//        UserDetails userDetails = new UserDetailsImpl(kakaoUser);
+//        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null);
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//    }
 }
