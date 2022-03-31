@@ -37,7 +37,7 @@ public class FormLoginAuthProvider implements AuthenticationProvider {
             throw new BadCredentialsException(userDetails.getUsername() + "Invalid password");
         }
 
-        return new UsernamePasswordAuthenticationToken(userDetails, null);
+        return new UsernamePasswordAuthenticationToken(userDetails, null ,userDetails.getAuthorities());
     }
 
     @Override
