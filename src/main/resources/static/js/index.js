@@ -6,7 +6,7 @@ $(document).ready(function () {
             }
         })
     } else {
-        window.location.href = '/user/loginView';
+        window.location.href = '/user/login';
     }
 
     $.ajax({
@@ -17,14 +17,14 @@ $(document).ready(function () {
             const username = response.username;
 
             if (!username) {
-                window.location.href = '/user/loginView';
+                window.location.href = '/user/login';
             }
 
             $('#username').text(username);
 
         },
         error: function() {
-            window.location.href = '/user/loginView';
+            window.location.href = '/user/login';
         }
     })
 })
